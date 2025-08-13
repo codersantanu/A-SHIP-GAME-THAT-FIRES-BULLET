@@ -14,4 +14,4 @@ class Ship:
         
     def blitme(self):
             """Draw the shit at its current location"""
-            self.screen.blit(self.image,self.rect)
+            self.screen.blit(self.image,self.rect) #blit means "draw" in Pygame.
