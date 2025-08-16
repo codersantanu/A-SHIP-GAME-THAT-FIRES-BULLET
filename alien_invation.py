@@ -20,23 +20,22 @@ class AlienInvasion:
         self.ship=Ship(self) #from Ship class
     
     def run_game(self):
-        # Infinite loop that keeps the game running until the user quits
-        while True:
+        while True:# Infinite loop that keeps the game running until the user quits
             self._check_event()
-            
+            self._update_screen()
     def _check_event(self):
-            # Loop through all recent user interactions/events
-        for event in pygame.event.get():
-            # If the user clicked the close button on the window
-            if event.type == pygame.QUIT:
+            
+        for event in pygame.event.get():# Loop through all recent user interactions/events
+        
+            if event.type == pygame.QUIT:   # If the user clicked the close button on the window
                 sys.exit()  # Exit the program immediately
-                    
+    def _update_screen(self):      
             #Redraw the screen during each pass through the loop
-            self.screen.fill(self.settings.bg_color)
-            self.ship.blitme() 
+        self.screen.fill(self.settings.bg_color)
+        self.ship.blitme() 
             
             # Make the most recently drawn screen visible.
-            pygame.display.flip()
+        pygame.display.flip()
 # Run the game only if this file is executed directly
 if __name__ == '__main__':
     ai = AlienInvasion()  # Create an instance of the game
