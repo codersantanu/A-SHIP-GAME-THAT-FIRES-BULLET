@@ -13,6 +13,10 @@ class Ship:
         #Start each new ship at the bottom center of the screen.
         self.rect.midbottom=self.screen_react.midbottom
         
+        self.moving_right=False # Moving flag
+    def update(self):
+        if self.moving_right:# Update the ship position based on the movement flag.
+            self.rect.x+=1
     def blitme(self):
             """Draw the shit at its current location"""
             self.screen.blit(self.image,self.rect) #blit means "draw" in Pygame.
