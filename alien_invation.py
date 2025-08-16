@@ -22,6 +22,7 @@ class AlienInvasion:
     def run_game(self):
         while True:# Infinite loop that keeps the game running until the user quits
             self._check_event()
+            self.ship.update()
             self._update_screen()
     def _check_event(self):
             
@@ -32,7 +33,10 @@ class AlienInvasion:
             elif event.type==pygame.KEYDOWN:
                 if event.key==pygame.K_RIGHT:
                     
-                    self.ship.rect.x+=1 #Move the sheep to the right
+                    self.ship.moving_right=True #Move the sheep to the right
+                elif event.type==pygame.KEYUP:
+                    if event.key==pygame.K_RIGHT:
+                        self.ship.moving_right=False
     def _update_screen(self):      
             #Redraw the screen during each pass through the loop
         self.screen.fill(self.settings.bg_color)
