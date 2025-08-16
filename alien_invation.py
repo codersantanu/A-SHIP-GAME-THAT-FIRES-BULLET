@@ -29,6 +29,10 @@ class AlienInvasion:
         
             if event.type == pygame.QUIT:   # If the user clicked the close button on the window
                 sys.exit()  # Exit the program immediately
+            elif event.type==pygame.KEYDOWN:
+                if event.key==pygame.K_RIGHT:
+                    
+                    self.ship.rect.x+=1 #Move the sheep to the right
     def _update_screen(self):      
             #Redraw the screen during each pass through the loop
         self.screen.fill(self.settings.bg_color)
