@@ -3,6 +3,7 @@ import pygame           # Main library for making the game window, graphics, and
 from ship import Ship   # Import the Ship class
 from settings import Settings   # Import the Setting class
 
+
 class AlienInvasion:
     """Overall class that manages game assets and behavior"""  # Description of what this class does
     
@@ -21,13 +22,14 @@ class AlienInvasion:
     def run_game(self):
         # Infinite loop that keeps the game running until the user quits
         while True:
+            self._check_event()
             
+    def _check_event(self):
             # Loop through all recent user interactions/events
-            for event in pygame.event.get():
-                
-                # If the user clicked the close button on the window
-                if event.type == pygame.QUIT:
-                    sys.exit()  # Exit the program immediately
+        for event in pygame.event.get():
+            # If the user clicked the close button on the window
+            if event.type == pygame.QUIT:
+                sys.exit()  # Exit the program immediately
                     
             #Redraw the screen during each pass through the loop
             self.screen.fill(self.settings.bg_color)
